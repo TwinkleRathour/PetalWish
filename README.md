@@ -1,227 +1,141 @@
-# 🌸 PetalWish
+🌸 PetalWish — Cards That Connect 💌
+PetalWish is an interactive web application for creating and personalizing greeting cards and invitations for life's special moments. Browse designs for weddings, birthdays, baby celebrations, parties, and other occasions, then customize a design in the Design Studio.
 
-### Cards That Connect 💌
+The project combines a responsive frontend with a REST API for user accounts, card templates, saved designs, favorites, and payment records.
+✨ Features
+- Template gallery: Browse greeting cards and invitations by categories such as Wedding, Birthday, Baby & Kids, and Party.
+- Search and filters: Find designs by keywords and template attributes.
+- Design Studio: Create and personalize cards using editable design elements.
+- User accounts: Register, log in, update profile details, and manage sessions.
+- My Designs: Create, edit, duplicate, and manage saved designs.
+- Favorites: Save templates for quick access. Guest favorites can be stored locally and synchronized after login.
+- Responsive interface: Designed for desktop and mobile screen sizes.
+- REST API: Manage accounts, templates, designs, favorites, and payment records through the backend.
+- Development mode: Use MongoDB for persistent storage or a temporary in-memory database for local development.
+🛠️ Tech Stack
+Technology	Purpose
+HTML5	Page structure
+CSS3	Styling, layout, and responsive presentation
+JavaScript	Frontend interactions and Design Studio logic
+Node.js	Backend JavaScript runtime
+Express.js	REST API and server routing
+MongoDB	Persistent data storage
+Mongoose	MongoDB object modelling
+JWT	User authentication
+Zod	Request validation
+bcrypt	Password hashing
+Google Fonts	Typography
 
-PetalWish is a beautiful and interactive **greeting card and invitation-making website** designed to help users create personalized cards for birthdays, weddings, baby showers, parties, and other special occasions.
 
-The website provides a collection of professionally designed templates that users can explore, customize, save as favorites, and use to create memorable digital invitations and greeting cards.
-
----
-
-## ✨ Features
-
-* 🎨 **Design Studio** — Create and customize greeting cards and invitations.
-* 💍 **Wedding Templates** — Wedding invitations, engagement cards, save-the-date cards, RSVP cards, and thank-you cards.
-* 🎂 **Birthday Templates** — Birthday invitations, kids' birthdays, adult birthdays, milestone birthdays, and birthday cards.
-* 👶 **Baby & Kids** — Baby shower, gender reveal, first birthday, baptism, and baby announcement templates.
-* 🎉 **Party Templates** — Party invitations, graduation, anniversary, celebrations, and holiday parties.
-* 🔍 **Template Search** — Search through available card templates.
-* ❤️ **Favorites** — Save preferred templates for quick access.
-* 👤 **User Profile** — Login/profile interface with options for My Designs, Favorites, and Invitations & RSVPs.
-* 📱 **Responsive Design** — Designed to work across desktop and mobile screen sizes.
-* 🖼️ **Template Gallery** — Browse different card designs and categories.
-* 📤 **Upload Your Own** — Option to work with your own design/content.
-* ✨ **Interactive Homepage** — Category sections, trending templates, animations, and interactive card previews.
-
----
-
-## 🛠️ Technologies Used
-
-| Technology       | Purpose                                             |
-| ---------------- | --------------------------------------------------- |
-| **HTML5**        | Structure and content of the website                |
-| **CSS3**         | Styling, layouts, animations, and responsive design |
-| **JavaScript**   | Interactivity and application functionality         |
-| **Python**       | Local development server                            |
-| **Google Fonts** | Typography and visual design                        |
-
-The project is primarily a client-side web application, with the included `run_server.bat` file using Python's built-in HTTP server to serve the website locally.
-
----
-
-## 📁 Project Structure
-
-```text
+📁 Project Structure
 PetalWish/
-│
-├── assets/
-│   ├── images/
-│   └── templates/
-│
-├── .vscode/
-│
-├── index.html
-├── style.css
-├── script.js
-├── run_server.bat
+├── assets/                 # Frontend images and other assets
+├── index.html              # Main web page
+├── style.css               # Frontend styles
+├── script.js               # UI interactions and Design Studio
+├── api.js                  # Frontend REST API client
+├── run_server.bat          # Windows development startup script
+├── server/
+│   ├── .env.example        # Example backend configuration
+│   ├── package.json        # Backend dependencies and scripts
+│   ├── src/
+│   │   ├── app.js          # Express application and middleware
+│   │   ├── server.js       # Server startup and database connection
+│   │   ├── config/         # Environment and database configuration
+│   │   ├── models/         # User, template, design, favorite, payment models
+│   │   ├── validators/     # Request validation schemas
+│   │   ├── middleware/     # Authentication, validation, error handling
+│   │   ├── controllers/    # Request handlers
+│   │   ├── routes/         # API route definitions
+│   │   ├── services/       # Business and database services
+│   │   └── data/           # Template catalogue
+│   ├── scripts/            # Seeding and development utilities
+│   └── tests/              # Backend API tests
 └── README.md
-```
-
-The repository currently includes the main HTML page, stylesheet, JavaScript functionality, asset folders, VS Code configuration, and a Windows batch file for starting the local server.
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Ananya-Rastogi/PetalWish.git
-```
-
-### 2. Navigate to the Project
-
-```bash
+🚀 Getting Started
+Prerequisites
+- Node.js (version 20 or newer is recommended for this project)
+- npm (included with Node.js)
+- MongoDB Atlas or another MongoDB instance for persistent data
+1. Clone the repository
+git clone https://github.com/TwinkleRathour/PetalWish.git
 cd PetalWish
-```
-
-### 3. Start the Local Server
-
-Make sure **Node.js** (version 20 or newer) is installed on your system.
-
-On Windows, you can run:
-
-```bash
-run_server.bat
-```
-
-The script installs the server dependencies on first run, starts the PetalWish server (website + API) and opens:
-
-```text
-http://localhost:5000
-```
-
-If `server/.env` exists, it uses the MongoDB database configured there. Otherwise it uses a temporary in-memory database, and the data is lost when the window closes.
-
-### Backend API (Node.js + Express + MongoDB)
-
-The `server/` folder contains the REST API: JWT login and registration, templates, designs, favorites and payment records. The website talks to it through `api.js`.
-
-```bash
+2. Install backend dependencies
 cd server
 npm install
-cp .env.example .env   # add your MongoDB Atlas URI and a JWT secret
-npm run dev            # or: npm run dev:memory (no database needed)
-```
+3. Configure environment variables
+Create a local .env file from the supplied example.
 
-See [server/README.md](server/README.md) for the full API reference and the MongoDB Atlas setup.
+On macOS/Linux:
+cp .env.example .env
+On Windows Command Prompt:
+copy .env.example .env
+Open server/.env and configure the required values, including your MongoDB connection string and a strong JWT secret. Use your own credentials; do not commit .env files or secrets to GitHub.
+4. Run the application
+From the server directory, run with your configured MongoDB database:
+npm run dev
+To run during development with a temporary in-memory database instead:
+npm run dev:memory
+The in-memory database is temporary; its data is lost when the server stops.
 
-Demo accounts for testing: `elena@example.com`, `julian@example.com` and `sarah@example.com`, all with the password `petalwish2026`. The demo buttons in the login window use them.
+On Windows, you can also run run_server.bat from the project root. It installs dependencies on first run, starts the server, and opens the local site.
 
----
+When the server starts, open:
 
-## 🎯 How It Works
+http://localhost:5000
+5. (Optional) Seed the template catalogue
+From the server directory:
+npm run seed
+This command inserts or updates the starter template catalogue and builds the configured indexes.
+🧭 How to Use PetalWish
+1. Open the homepage and browse the template gallery.
+2. Select an occasion or search for a suitable design.
+3. Preview a template and open it in the Design Studio.
+4. Personalize the design using the available editing options.
+5. Sign in to save and manage designs and favorites with your account.
+6. Reopen saved designs later to continue editing or duplicate them.
+The available actions depend on the features enabled in the current application version.
+🔌 Backend API
+The local API base URL is:
+http://localhost:5000/api
+The frontend API wrapper in api.js exposes window.PetalWishAPI and communicates with the Express backend.
+Area	Capabilities
+Health	Check whether the API is running
+Authentication	Register, log in, retrieve/update profile, change password, revoke sessions
+Templates	Browse, search, filter, sort, and retrieve templates
+Designs	Create, read, update, duplicate, and delete a user's designs
+Favorites	List, add, remove, and synchronize favorite templates
+Payments	Retrieve payment history and payment summaries
 
-1. **Explore Templates**
-   Browse available greeting cards and invitation designs.
 
-2. **Choose a Category**
-   Select from categories such as Wedding, Birthday, Baby & Kids, or Party.
-
-3. **Search Templates**
-   Use the search functionality to quickly find a suitable design.
-
-4. **Preview a Template**
-   View the design before selecting it.
-
-5. **Customize Your Design**
-   Open the Design Studio to personalize your card.
-
-6. **Save Favorites**
-   Save designs that you may want to use later.
-
-7. **Create & Share**
-   Create a personalized card for your special occasion.
-
----
-
-## 🎨 Main Categories
-
-### 💒 Wedding
-
-* Wedding Invitations
-* Save the Date
-* Engagement
-* Bridal Shower
-* Bachelor/Bachelorette
-* Wedding Announcements
-* RSVP
-* Thank You
-
-### 🎂 Birthday
-
-* Birthday Invitations
-* Kids Birthday
-* Adult Birthday
-* Birthday Cards
-* Milestone Birthdays
-
-### 👶 Baby & Kids
-
-* Baby Shower
-* First Birthday
-* Baptism
-* Baby Announcement
-* Kids
-
-### 🎉 Party
-
-* Party Invitations
-* Graduation
-* Anniversary
-* Celebration
-* Holiday Party
-
----
-
-## 💡 Why PetalWish?
-
-PetalWish makes creating invitations and greeting cards **simple, creative, and accessible**. Instead of designing a card from scratch, users can start with an existing template and personalize it according to their event.
-
-The goal is to combine **beautiful designs with an easy-to-use interface** so users can focus on celebrating their special moments.
-
----
-
-## 📸 Screenshots
-
-You can add screenshots of the project here:
-
-```markdown
-![PetalWish Homepage](assets/images/homepage.png)
-
-![Template Gallery](assets/images/templates.png)
-
+Protected endpoints require a valid bearer token. For full route details and MongoDB setup instructions, see [`server/README.md`](server/README.md).
+🧪 Testing
+The backend includes an API test suite. From the server directory, run:
+npm test
+The tests use an in-memory database according to the backend test configuration.
+🔐 Security Notes
+- Passwords are hashed before storage.
+- Protected API endpoints use JWT-based authentication.
+- Request bodies and parameters are validated by backend schemas.
+- Authentication endpoints include rate limiting.
+- Security headers and configured CORS policies help reduce common web risks.
+- Keep database credentials, secret keys, and real user data out of source control.
+- Demo accounts, where enabled for development, are for local testing only. Do not use demo credentials in production.
+🔮 Possible Future Enhancements
+- Export customized cards as downloadable images or PDFs.
+- Add secure shareable invitation links.
+- Improve invitation delivery and RSVP workflows.
+- Expand accessibility and mobile testing.
+- Complete and test an end-to-end payment checkout flow before enabling real payments.
+- Deploy the frontend and API with production environment variables, monitoring, and backups.
+📸 Screenshots
+Add screenshots of the actual application to showcase the homepage, template gallery, and Design Studio. For example, if you save screenshots under assets/images/:
+![PetalWish homepage](assets/images/homepage.png)
+![Template gallery](assets/images/templates.png)
 ![Design Studio](assets/images/design-studio.png)
-```
+Replace the sample paths with images that exist in the repository.
+📄 License
+No license is specified in this README. Add a LICENSE file if you intend to publish the project under a particular open-source license.
+PetalWish — Turn your special moments into beautiful memories. 🌷
 
----
-
-## 🔮 Future Enhancements
-
-Possible future improvements include:
-
-* 🔐 Real user authentication
-* ☁️ Cloud storage for user designs
-* 💾 Persistent saving of customized cards
-* 📧 Email invitations
-* 🔗 Shareable invitation links
-* 📱 Progressive Web App (PWA) support
-* 🖨️ High-quality card export
-* 📄 PDF download
-* 🎨 More customization options
-* 🗄️ Backend/database integration
-* 💳 Premium templates and payment integration
-
----
-
-## 📄 License
-
-This project is intended for educational and project-development purposes.
-
----
-
-## 🌷 Project Vision
-
-> **PetalWish — Turn your special moments into beautiful memories. 💌**
-
-Made with ❤️ for celebrations, connections, and unforgettable moments.
+Built with ❤️ for creativity, celebrations, and connection.
