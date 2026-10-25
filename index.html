@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetalWish — Cards That Connect</title>
+  <meta name="description" content="Create stunning greeting cards, invitations, and announcements with professionally designed templates you can customize online.">
+  
+  <!-- Typography / Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+
+    <!-- STICKY HEADER -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-container">
+        <!-- Logo -->
+        <a href="#" class="brand-logo" id="logo-btn">
+          <img class="brand-flower-mark" src="assets/images/petalwish-flower-mark.png" alt="">
+          <span class="brand-name brand-name-gradient">PetalWish</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" id="nav-links">
+          <div class="nav-item-dropdown">
+            <button class="nav-link" data-category="Wedding">Wedding</button>
+            <div class="mega-menu">
+              <div class="mega-menu-column">
+                <h4>Invitations</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Wedding Invitations">Wedding Invitations</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Save the Date">Save the Date</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Engagement">Engagement</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Bridal Shower">Bridal Shower</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Bachelor/Bachelorette">Bachelor/Bachelorette</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Cards & Stationery</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Wedding Announcements">Wedding Announcements</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="RSVP">RSVP</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Wedding" data-subcategory="Thank You">Thank You</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item-dropdown">
+            <button class="nav-link" data-category="Birthday">Birthday</button>
+            <div class="mega-menu">
+              <div class="mega-menu-column">
+                <h4>Invitations</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Birthday Invitations">Birthday Invitations</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Kids Birthday">Kids Birthday</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Adult Birthday">Adult Birthday</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Cards & Milestones</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Birthday Cards">Birthday Cards</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Milestone Birthdays">Milestone Birthdays</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Birthday" data-subcategory="Birthday">Birthday</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item-dropdown">
+            <button class="nav-link" data-category="Baby & Kids">Baby & Kids</button>
+            <div class="mega-menu">
+              <div class="mega-menu-column">
+                <h4>Invitations</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Baby & Kids" data-subcategory="Baby Shower">Baby Shower</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Baby & Kids" data-subcategory="First Birthday">First Birthday</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Baby & Kids" data-subcategory="Baptism">Baptism</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Announcements & Cards</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Baby & Kids" data-subcategory="Baby Announcement">Baby Announcement</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Baby & Kids" data-subcategory="Kids">Kids</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item-dropdown">
+            <button class="nav-link" data-category="Party">Party</button>
+            <div class="mega-menu">
+              <div class="mega-menu-column">
+                <h4>Invitations</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Party" data-subcategory="Party Invitations">Party Invitations</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Party" data-subcategory="Graduation">Graduation</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Party" data-subcategory="Anniversary">Anniversary</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Events & Holidays</h4>
+                <ul>
+                  <li><a href="#" class="mega-menu-link" data-category="Party" data-subcategory="Celebration">Celebration</a></li>
+                  <li><a href="#" class="mega-menu-link" data-category="Party" data-subcategory="Holiday Party">Holiday Party</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="nav-link" id="header-nav-studio">Design Studio</button>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="nav-actions">
+          <div class="header-search-bar" id="header-search-bar">
+            <svg class="search-icon-nav" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="navbar-search-input" placeholder="Search templates..." autocomplete="off">
+            <button class="clear-search-btn-nav hidden" id="navbar-clear-search-btn" title="Clear Search">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn" id="nav-fav-btn" title="Saved Favorites" aria-label="Favorites">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="fav-badge" id="fav-count-badge">0</span>
+          </button>
+          <button class="nav-btn-secondary" id="nav-login-btn">Log In</button>
+
+          <!-- User Logged In Profile Menu -->
+          <div class="user-header-profile hidden" id="user-header-profile">
+            <button class="user-avatar-btn" id="user-avatar-btn" title="Account Menu">
+              <span class="avatar-initials" id="avatar-initials">ER</span>
+            </button>
+            <div class="user-dropdown-menu hidden" id="user-dropdown-menu">
+              <div class="dropdown-user-info">
+                <span class="dropdown-name" id="dropdown-user-name">Elena Rostova</span>
+                <span class="dropdown-email" id="dropdown-user-email">elena@example.com</span>
+              </div>
+              <hr class="divider">
+              <button class="dropdown-item" id="dropdown-my-designs">My Designs</button>
+              <button class="dropdown-item" id="dropdown-favorites">Favorites</button>
+              <button class="dropdown-item" id="dropdown-rsvp">Invitations & RSVPs</button>
+              <hr class="divider">
+              <button class="dropdown-item logout" id="dropdown-logout">Log Out</button>
+            </div>
+          </div>
+          <button class="btn-primary" id="header-create-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Create Design</span>
+          </button>
+          <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-nav-links">
+          <button class="mobile-nav-link" data-category="All">All Templates</button>
+          <button class="mobile-nav-link" data-category="Wedding">Wedding</button>
+          <button class="mobile-nav-link" data-category="Birthday">Birthday</button>
+          <button class="mobile-nav-link" data-category="Baby & Kids">Baby & Kids</button>
+          <button class="mobile-nav-link" data-category="Party">Party</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- VIEW 1: MAIN HOMEPAGE & TEMPLATE GALLERY -->
+    <main class="app-view active" id="view-home">
+      <!-- NEW HERO SECTION -->
+      <section class="new-hero-section">
+        <div class="new-hero-container">
+          <div class="new-hero-content">
+            <h1 class="new-hero-title">Ready to <span class="highlight-pink">celebrate?</span></h1>
+            <p class="new-hero-subtitle">Life's a party, and it all starts with the perfect invite or card.</p>
+          </div>
+          <div class="new-hero-visual-wrap">
+            <div class="new-hero-visual-bg">
+              <img class="hero-reference-image homepage-interactive-card" data-template-id="birthday-zoe-13" src="assets/images/zoe-birthday-hero.png" alt="Zoe Turns 13 birthday card surrounded by balloons, music notes, and party decorations">
+              <div class="template-lottie-layer hero-lottie-layer" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW TRENDING SECTION -->
+      <section class="new-trending-section">
+        <div class="new-section-header">
+          <h2>Explore what's <span class="highlight-pink">trending</span></h2>
+        </div>
+        <div class="trending-cards-grid">
+          <!-- Card 1 -->
+          <div class="template-card trending-card-item">
+            <div class="card-preview-wrap animated-template-preview">
+              <div class="template-lottie-layer" aria-hidden="true"></div>
+              <div class="card-canvas-container illustrated-card-container">
+                <img class="illustrated-template-art" src="assets/images/back-to-school-collage-v2.png" alt="Back to School Party invitation">
+              </div>
+              <div class="card-overlay">
+                <div class="overlay-bottom">
+                <button class="btn-primary btn-sm btn-use-template" data-id="back-to-school">
+    Use Template
+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-details-left">
+                <span class="card-category-pill">Party</span>
+                <h3 class="card-title">Back to School Party</h3>
+              </div>
+              <button class="btn-fav-card" title="Save Favorite" aria-label="Favorite">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="template-card trending-card-item">
+            <div class="card-preview-wrap animated-template-preview animated-template-preview-alt">
+              <div class="template-lottie-layer" aria-hidden="true"></div>
+              <div class="card-canvas-container illustrated-card-container">
+                <img class="illustrated-template-art" src="assets/images/housewarming-botanical-v2.png" alt="Botanical housewarming party invitation">
+              </div>
+              <div class="card-overlay">
+                <div class="overlay-bottom">
+                  <button class="btn-primary btn-sm btn-use-template" data-id="housewarming-modern">Use Template</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-details-left">
+                <span class="card-category-pill">Party</span>
+                <h3 class="card-title">Housewarming Party</h3>
+              </div>
+              <button class="btn-fav-card" title="Save Favorite" aria-label="Favorite">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hidden/Legacy element to prevent JS errors -->
+        <div id="trending-track" class="hidden"></div>
+      </section>
+
+      <!-- NEW WISH & CELEBRATE SECTION -->
+      <section class="new-wish-section">
+        <div class="wish-container">
+          <div class="wish-left-collage">
+            <div class="collage-back-card">
+              <div class="cake-card-inner">
+                <div class="cake-title">Have the Cake and Eat it Too!</div>
+                <div class="cake-subtitle">JUNE 20, 2026 | 8:00 PM</div>
+              </div>
+            </div>
+            <div class="collage-front-card">
+              <div class="photo-card-inner">
+                <div class="photo-title">Chiara Bellini's 40th birthday party</div>
+                <div class="photo-date">JUNE 20, 2026 | 7:30 PM</div>
+              </div>
+            </div>
+          </div>
+          <div class="wish-right-content">
+            <h2 class="wish-title"><span class="highlight-orange">Make a wish</span> and celebrate with style</h2>
+            <div class="wish-actions">
+              <button class="wish-pill-btn" data-target-category="Birthday">
+                <span>Birthday invites</span>
+                <span class="arrow-circle">➔</span>
+              </button>
+              <button class="wish-pill-btn" data-target-category="Birthday">
+                <span>Birthday cards</span>
+                <span class="arrow-circle">➔</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW WEDDING SECTION -->
+      <section class="new-wedding-section">
+        <div class="wedding-container">
+          <div class="wedding-left-content">
+            <h2 class="wedding-title">Say <span class="highlight-pink">"I do"</span> to happily ever after</h2>
+            <div class="wedding-actions">
+              <button class="wish-pill-btn" data-target-category="Wedding">
+                <span>Wedding invites</span>
+                <span class="arrow-circle icon-pink">💒</span>
+              </button>
+              <button class="wish-pill-btn" data-target-category="Wedding">
+                <span>Engagement party</span>
+                <span class="arrow-circle icon-pink">💍</span>
+              </button>
+              <button class="wish-pill-btn" data-target-category="Wedding">
+                <span>Save the date</span>
+                <span class="arrow-circle icon-pink">📅</span>
+              </button>
+            </div>
+          </div>
+          <div class="wedding-right-collage">
+            <div class="wedding-visual-bg">
+              <div class="collage-back-card-wedding homepage-interactive-card" data-template-id="wedding-rebecca-eli">
+                <div class="wedding-card-back-inner">
+                  <div class="card-suit-top">R ♥</div>
+                  <div class="card-photo-placeholder">
+                    <svg viewBox="0 0 100 120" style="width:100%;height:100%;"><rect width="100%" height="100%" fill="#FCECE4"/><path d="M12,40 C12,40 30,10 50,10 C70,10 88,40 88,40" stroke="#E8A9C1" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <div class="wedding-txt-main">SAVE the DATE</div>
+                  <div class="wedding-txt-names">REBECCA & ELI</div>
+                  <div class="wedding-txt-date">OCTOBER 19, 2027 • SAN DIEGO</div>
+                  <div class="wedding-txt-note">formal invitation to follow</div>
+                  <div class="card-suit-bottom">R ♥</div>
+                </div>
+              </div>
+              <div class="collage-front-card-wedding homepage-interactive-card" data-template-id="wedding-lena-theo">
+                <div class="wedding-card-front-inner">
+                  <div class="front-small-txt">WITH JOY, YOU ARE INVITED TO THE WEDDING OF</div>
+                  <div class="front-title">Lena & Theo</div>
+                  <div class="front-details">SATURDAY, AUGUST 15, 2026 AT 5 O'CLOCK IN THE EVENING MAGNOLIA WEDDING ESTATE ATLANTA, GEORGIA</div>
+                  <div class="front-footer">RECEPTION TO FOLLOW</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW BABY SECTION -->
+      <section class="new-baby-section">
+        <div class="baby-container">
+          <div class="baby-left-collage">
+            <div class="baby-visual-bg">
+              <div class="collage-left-card-baby homepage-interactive-card" data-template-id="baby-little-honey">
+                <div class="baby-card-left-inner">
+                  <div class="baby-badge-top">let's celebrate!</div>
+                  <div class="baby-title-main">a little honey</div>
+                  <div class="baby-subtitle-main">is on the way?</div>
+                  <div class="baby-illustration-honey">🐝 🍯</div>
+                  <div class="baby-host-details">JESSIE'S BABY SHOWER</div>
+                  <div class="baby-date-details">SAT | AUGUST 15 | 2PM</div>
+                  <div class="baby-address-details">38 parkside drive, fresno rsvp to: dbaker@gmail.com registered at target</div>
+                </div>
+              </div>
+              <div class="collage-right-card-baby homepage-interactive-card" data-template-id="baby-gender-reveal">
+                <div class="baby-card-right-inner">
+                  <div class="baby-q-text">what will baby francis be?</div>
+                  <div class="baby-hearts-graphic">💙 💗</div>
+                  <div class="baby-event-type">JOIN US FOR A gender reveal party!</div>
+                  <div class="baby-for-txt">FOR Baby Francis</div>
+                  <div class="baby-date-right">SEP 25 | 2026 23251 winwood drive claremont, california regrets only to sarah 616-254-8672</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="baby-right-content">
+            <h2 class="baby-title">Welcome <span class="highlight-cyan">tiny</span> treasures</h2>
+            <div class="baby-actions">
+              <button class="wish-pill-btn" data-target-category="Baby Shower">
+                <span>Baby shower</span>
+                <span class="arrow-circle icon-cyan">🎁</span>
+              </button>
+              <button class="wish-pill-btn" data-target-category="Baby Shower">
+                <span>Gender reveal</span>
+                <span class="arrow-circle icon-cyan">🚼</span>
+              </button>
+              <button class="wish-pill-btn" data-target-category="Baby Shower">
+                <span>Baptism</span>
+                <span class="arrow-circle icon-cyan">✝</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW REASONS SECTION -->
+      <section class="new-reasons-section">
+        <div class="reasons-container">
+          <!-- Fan of Cards -->
+          <div class="reasons-fan-container">
+            <div class="fan-card card-f1"></div>
+            <div class="fan-card card-f2"></div>
+            <div class="fan-card card-f3"></div>
+            <div class="fan-card card-f4"></div>
+            <div class="fan-card card-f5"></div>
+            <div class="fan-card card-f6"></div>
+          </div>
+          
+          <h2 class="reasons-title"><span class="highlight-blue">More reasons</span> to celebrate</h2>
+          
+          <div class="reasons-grid">
+            <button class="reason-grid-btn" data-target-category="Party">
+              <span>Housewarming</span>
+              <span class="icon-circle icon-purple">🔑</span>
+            </button>
+            <button class="reason-grid-btn" data-target-category="Birthday">
+              <span>Milestone birthdays</span>
+              <span class="icon-circle icon-pink">🎂</span>
+            </button>
+            <button class="reason-grid-btn" data-target-category="Baby Shower">
+              <span>Birth announcements</span>
+              <span class="icon-circle icon-cyan">🍼</span>
+            </button>
+            <button class="reason-grid-btn" data-target-category="Anniversary">
+              <span>Anniversary parties</span>
+              <span class="icon-circle icon-orange">💍</span>
+            </button>
+            <button class="reason-grid-btn" data-target-category="Party">
+              <span>Business events</span>
+              <span class="icon-circle icon-blue">💼</span>
+            </button>
+            <button class="reason-grid-btn" id="reasons-upload-btn">
+              <span>Upload your own</span>
+              <span class="icon-circle icon-green">➕</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 1.5: DEDICATED TEMPLATE GALLERY EXPLORE VIEW -->
+    <main class="app-view" id="view-explore">
+      <!-- TEMPLATE SEARCH & EXPLORE SECTION -->
+      <section class="explore-section" id="explore-section">
+        <div class="section-header center">
+          <span class="section-tag">Template Library</span>
+          <h2 class="section-title">Explore Templates</h2>
+          <p class="section-subtitle">Find the perfect aesthetic for your celebration or event</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar-wrapper">
+          <div class="search-input-box">
+            <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="template-search-input" placeholder="Search templates, occasions or styles (e.g., birthday, minimal, floral)..." autocomplete="off">
+            <button class="clear-search-btn hidden" id="clear-search-btn" title="Clear Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="category-chips-scroll">
+          <div class="category-chips" id="category-chips">
+            <button class="chip active" data-category="All">All</button>
+            <button class="chip" data-category="Wedding">Wedding</button>
+            <button class="chip" data-category="Birthday">Birthday</button>
+            <button class="chip" data-category="Baby & Kids">Baby & Kids</button>
+            <button class="chip" data-category="Party">Party</button>
+          </div>
+        </div>
+
+        <!-- Advanced Filters Bar -->
+        <div class="advanced-filters-bar">
+          <div class="filter-group">
+            <label for="filter-occasion">Occasion</label>
+            <select id="filter-occasion">
+              <option value="All">All Occasions</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Baby & Kids">Baby & Kids</option>
+              <option value="Party">Party</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-style">Style</label>
+            <select id="filter-style">
+              <option value="All">All Styles</option>
+              <option value="Minimal">Minimal</option>
+              <option value="Modern">Modern</option>
+              <option value="Elegant">Elegant</option>
+              <option value="Floral">Floral</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Editorial">Editorial</option>
+              <option value="Classic">Classic</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-color">Color Palette</label>
+            <select id="filter-color">
+              <option value="All">All Colors</option>
+              <option value="Pink">Pink</option>
+              <option value="Purple">Purple</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Black">Black</option>
+              <option value="Multicolor">Multicolor</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-orientation">Orientation</label>
+            <select id="filter-orientation">
+              <option value="All">All Orientations</option>
+              <option value="Portrait">Portrait</option>
+              <option value="Landscape">Landscape</option>
+              <option value="Square">Square</option>
+            </select>
+          </div>
+
+          <div class="filter-results-info">
+            <span class="results-count" id="results-count-text">32 designs found</span>
+            <button class="reset-filters-btn hidden" id="reset-filters-btn">Reset Filters</button>
+          </div>
+        </div>
+
+        <!-- TEMPLATE GALLERY GRID -->
+        <div class="template-grid" id="template-grid">
+          <!-- Rendered via JavaScript -->
+        </div>
+
+        <!-- No Search Results State -->
+        <div class="empty-results-state hidden" id="empty-results-state">
+          <div class="empty-icon-wrap">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </div>
+          <h3>No designs found</h3>
+          <p>We couldn't find any templates matching your search filters. Try adjusting your query or resetting filters.</p>
+          <button class="btn-primary" id="empty-clear-btn">Clear Search & Filters</button>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS SECTION -->
+      <section class="how-it-works-section">
+        <div class="section-header center">
+          <span class="section-tag">Simple 3-Step Process</span>
+          <h2 class="section-title">How PetalWish Works</h2>
+          <p class="section-subtitle">Crafting personalized, high-end greeting cards and invitations takes just moments</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Choose a template</h3>
+            <p>Start with a professionally designed layout curated for birthdays, weddings, baby showers, or holiday greetings.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Make it yours</h3>
+            <p>Customize fonts, wording, geometric shapes, background gradients, and upload your personal photos seamlessly.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Share your design</h3>
+            <p>Export high-resolution PNGs for print, share digital links, or send online invitation RSVPs to track guest responses.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURE CARDS SECTION -->
+      <section class="features-section">
+        <div class="section-header center">
+          <span class="section-tag">Platform Highlights</span>
+          <h2 class="section-title">Everything you need to design</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Professional Templates</h3>
+            <p>Beautiful designs crafted with editorial typography, balanced white space, and gold-standard aesthetics for every occasion.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            <h3>Easy Customization</h3>
+            <p>Full control over every element. Move, rotate, resize text nodes, vector shapes, layers, and color palettes effortlessly.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+            <h3>Photo Uploads</h3>
+            <p>Incorporate your cherished memories directly into photo frames with aspect ratio preservation and drag positioning.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
+            </div>
+            <h3>Save Designs</h3>
+            <p>Your work is saved locally in your personal workspace so you can return, duplicate, or re-edit whenever you want.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3>Instant Download</h3>
+            <p>Export crisp, high-resolution PNG downloads directly from your browser without watermarks or delay.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>RSVP Management</h3>
+            <p>Turn any design into an interactive online invitation. Share event links and track guest responses in real time.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS SECTION -->
+      <section class="testimonials-section">
+        <div class="section-header center">
+          <span class="section-tag">Loved By Creators</span>
+          <h2 class="section-title">What people are saying</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p class="testimonial-text">I created a beautiful birthday invitation in just a few minutes. The typography choices and color palettes look so refined!</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #E8A9C1;">EC</div>
+              <div>
+                <span class="author-name">Elena Rostova</span>
+                <span class="author-role">Event Organizer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p class="testimonial-text">The templates made the entire process incredibly easy. Customizing our wedding save-the-date was smooth and super intuitive.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #7C5CFC; color: #fff;">JM</div>
+              <div>
+                <span class="author-name">Julian & Maya</span>
+                <span class="author-role">Newlyweds</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p class="testimonial-text">I loved being able to customize every detail from SVG botanical borders to photo frames and instantly download crisp PNGs.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #F4DFC8; color: #2C2A29;">SB</div>
+              <div>
+                <span class="author-name">Sarah Sterling</span>
+                <span class="author-role">Graphic Designer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ ACCORDION SECTION -->
+      <section class="faq-section">
+        <div class="section-header center">
+          <span class="section-tag">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I customize the templates?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Every template in PetalWish is 100% customizable. You can modify text, adjust fonts and line spacing, change vector colors, add new shapes, upload images, and alter background gradients.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I upload my own photos?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. Click on the "Uploads" tab in the editor sidebar to upload JPG or PNG files directly from your computer. You can place, resize, and position them on your design canvas.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I save my designs?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Clicking "Save" in the editor automatically stores your project in your browser's local workspace ("My Designs"). You can revisit and edit your saved designs anytime.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I download my design?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. You can export your finished design as a high-definition PNG image file directly to your device with a single click.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I create invitations and collect RSVPs?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! PetalWish includes an integrated Invitation Creator and RSVP Manager. You can attach event details (date, time, venue, host description) and let guests accept, decline, or mark maybe.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can guests RSVP directly through the app?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. When you publish an invitation, a dedicated interactive RSVP link is generated allowing your guests to submit their attendance status instantly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is my design saved automatically?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Your design changes maintain a real-time history stack for Undo and Redo operations. You can hit `Ctrl + S` or click the "Save" button to commit permanent updates to your workspace.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 2: MY DESIGNS & FAVORITES DASHBOARD -->
+    <main class="app-view" id="view-dashboard">
+      <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+          <div class="sidebar-user">
+            <div class="user-avatar">C</div>
+            <div class="user-info">
+              <span class="user-name">Creative Workspace</span>
+              <span class="user-plan">PetalWish Studio</span>
+            </div>
+          </div>
+          <nav class="sidebar-menu">
+            <button class="sidebar-item active" id="dash-nav-designs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>My Designs</span>
+            </button>
+
+            <button class="sidebar-item" id="dash-nav-favs">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span>Favorites</span>
+            </button>
+
+            <button class="sidebar-item" id="dash-nav-rsvp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Invitations & RSVPs</span>
+            </button>
+
+            <button class="sidebar-item" id="dash-nav-back">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Library</span>
+            </button>
+          </nav>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <section class="dashboard-main">
+          <div class="dashboard-header">
+            <div>
+              <h1 class="dash-title" id="dash-heading">My Designs</h1>
+              <p class="dash-sub" id="dash-subheading">Manage and edit your saved custom card and invitation projects</p>
+            </div>
+            <button class="btn-primary" id="dash-create-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Create New</span>
+            </button>
+          </div>
+
+          <!-- Section: My Saved Designs Container -->
+          <div class="dash-section" id="dash-designs-container">
+            <div class="saved-designs-grid" id="saved-designs-grid">
+              <!-- JS Populated -->
+            </div>
+            <div class="empty-state hidden" id="empty-designs-state">
+              <div class="empty-illustration">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" stroke-width="1.5">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <h3>You haven't created any designs yet.</h3>
+              <p>Pick a template from our library or start a fresh canvas to begin customizing.</p>
+              <button class="btn-primary" id="empty-create-btn">Create your first design</button>
+            </div>
+          </div>
+
+          <!-- Section: Favorites Grid Container -->
+          <div class="dash-section hidden" id="dash-favs-container">
+            <div class="template-grid" id="favorites-grid">
+              <!-- JS Populated -->
+            </div>
+            <div class="empty-state hidden" id="empty-favs-state">
+              <div class="empty-illustration">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#E8A9C1" stroke-width="1.5">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <h3>No saved favorite templates yet</h3>
+              <p>Click the heart icon on any template card in the library to save it to your favorites list.</p>
+              <button class="btn-secondary" id="empty-browse-favs-btn">Browse Templates</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- VIEW 3: INVITATION & RSVP MANAGER -->
+    <main class="app-view" id="view-rsvp">
+      <div class="rsvp-layout">
+        <div class="rsvp-container">
+          <div class="rsvp-header">
+            <button class="btn-secondary btn-sm" id="rsvp-back-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              <span>Back</span>
+            </button>
+            <h2>Invitation & RSVP Management</h2>
+            <button class="btn-primary" id="create-invitation-trigger-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>New Invitation Event</span>
+            </button>
+          </div>
+
+          <!-- RSVP Stats Summary -->
+          <div class="rsvp-stats-grid">
+            <div class="stat-card">
+              <span class="stat-card-title">Total Responses</span>
+              <span class="stat-card-value" id="rsvp-total-val">0</span>
+            </div>
+            <div class="stat-card success">
+              <span class="stat-card-title">Attending (Accept)</span>
+              <span class="stat-card-value" id="rsvp-accept-val">0</span>
+            </div>
+            <div class="stat-card warning">
+              <span class="stat-card-title">Maybe</span>
+              <span class="stat-card-value" id="rsvp-maybe-val">0</span>
+            </div>
+            <div class="stat-card danger">
+              <span class="stat-card-title">Declined</span>
+              <span class="stat-card-value" id="rsvp-decline-val">0</span>
+            </div>
+          </div>
+
+          <!-- Chart & Event Detail Section -->
+          <div class="rsvp-dashboard-content">
+            <!-- Event Card Preview & Public RSVP Simulation -->
+            <div class="rsvp-event-card" id="active-event-card">
+              <span class="event-badge">Active Invitation</span>
+              <h3 class="event-name" id="event-display-name">Celebration Invitation</h3>
+              <div class="event-meta">
+                <div class="meta-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span id="event-display-date">Date: Saturday, October 24, 2026</span>
+                </div>
+                <div class="meta-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span id="event-display-time">Time: 6:00 PM EST</span>
+                </div>
+                <div class="meta-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span id="event-display-location">Location: Grand Ballroom, New York</span>
+                </div>
+                <div class="meta-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <span id="event-display-host">Hosted by: PetalWish Hosts</span>
+                </div>
+              </div>
+
+              <!-- Interactive Guest RSVP Buttons -->
+              <div class="guest-rsvp-box">
+                <h4>Will you be attending?</h4>
+                <div class="rsvp-action-btns">
+                  <button class="rsvp-choice-btn accept" data-status="Accept">Accept</button>
+                  <button class="rsvp-choice-btn maybe" data-status="Maybe">Maybe</button>
+                  <button class="rsvp-choice-btn decline" data-status="Decline">Decline</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Response Visual Chart -->
+            <div class="rsvp-chart-card">
+              <h3>Response Breakdown</h3>
+              <div class="chart-container">
+                <div class="bar-chart">
+                  <div class="bar-group">
+                    <div class="bar bar-accept" id="bar-accept" style="height: 0%;">
+                      <span class="bar-num" id="bar-num-accept">0</span>
+                    </div>
+                    <span class="bar-label">Accept</span>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-maybe" id="bar-maybe" style="height: 0%;">
+                      <span class="bar-num" id="bar-num-maybe">0</span>
+                    </div>
+                    <span class="bar-label">Maybe</span>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-decline" id="bar-decline" style="height: 0%;">
+                      <span class="bar-num" id="bar-num-decline">0</span>
+                    </div>
+                    <span class="bar-label">Decline</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Guest Log -->
+              <div class="guest-list-wrap">
+                <h4>Recent Guest Submissions</h4>
+                <ul class="guest-log-list" id="guest-log-list">
+                  <li class="guest-log-empty">No responses recorded yet. Click an RSVP button above to test!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- VIEW 4: FULL-SCREEN DESIGN EDITOR -->
+    <div class="app-view full-editor" id="view-editor">
+      <!-- Editor Top Bar -->
+      <div class="editor-topbar">
+        <div class="editor-brand">
+          <button class="btn-icon" id="editor-exit-btn" title="Exit Editor">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <span class="brand-name brand-name-gradient editor-brand-wordmark">PetalWish</span>
+          <span class="badge-editor">Editor</span>
+        </div>
+
+        <!-- Project Title Edit -->
+        <div class="editor-title-wrap">
+          <input type="text" id="editor-project-title" value="My Custom Design" title="Edit Design Name">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+        </div>
+
+        <!-- Top Controls: Undo/Redo/Zoom/Save/Download/Share -->
+        <div class="editor-top-actions">
+          <button class="icon-btn-text" id="undo-btn" title="Undo (Ctrl+Z)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 7v6h6"></path>
+              <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+            </svg>
+            <span>Undo</span>
+          </button>
+          <button class="icon-btn-text" id="redo-btn" title="Redo (Ctrl+Y)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 7v6h-6"></path>
+              <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path>
+            </svg>
+            <span>Redo</span>
+          </button>
+          <div class="topbar-divider"></div>
+
+          <div class="editor-next-menu" id="editor-next-menu">
+            <button class="btn-primary btn-sm editor-next-trigger" id="editor-next-btn" aria-haspopup="true" aria-expanded="false">
+              <span>Next</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="editor-next-dropdown" role="menu">
+              <button class="editor-next-option" id="editor-save-btn" role="menuitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline></svg>
+                <span>Save</span>
+              </button>
+              <button class="editor-next-option" id="editor-share-btn" role="menuitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>Share</span>
+              </button>
+              <button class="editor-next-option" id="editor-download-btn" role="menuitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor Main Container -->
+      <div class="editor-body">
+        <!-- Left Icon Sidebar -->
+        <div class="editor-left-nav">
+          <button class="editor-nav-tab active" data-tab="templates">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Templates</span>
+          </button>
+
+          <button class="editor-nav-tab" data-tab="elements">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>Elements</span>
+          </button>
+
+          <button class="editor-nav-tab" data-tab="text">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 7 4 4 20 4 20 7"></polyline>
+              <line x1="9" y1="20" x2="15" y2="20"></line>
+              <line x1="12" y1="4" x2="12" y2="20"></line>
+            </svg>
+            <span>Text</span>
+          </button>
+
+          <button class="editor-nav-tab" data-tab="uploads">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Uploads</span>
+          </button>
+
+          <button class="editor-nav-tab" data-tab="background">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+            <span>Background</span>
+          </button>
+
+          <button class="editor-nav-tab" data-tab="layers">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Layers</span>
+          </button>
+        </div>
+
+        <!-- Tool Sub-Panel -->
+        <div class="editor-subpanel" id="editor-subpanel">
+          <!-- Subpanel Content dynamically inserted in JS -->
+        </div>
+
+        <!-- Center Workspace Canvas Area -->
+        <div class="editor-canvas-stage" id="editor-canvas-stage">
+          <div class="card-surface-controls" aria-label="Card surfaces">
+            <span id="active-surface-label">Front Cover</span>
+            <div class="card-surface-buttons">
+              <button class="card-surface-btn active" data-surface="front">Front</button>
+              <button class="card-surface-btn" data-surface="insideLeft">Inside Left</button>
+              <button class="card-surface-btn" data-surface="insideRight">Inside Right</button>
+              <button class="card-surface-btn" data-surface="back">Back</button>
+            </div>
+          </div>
+          <!-- Canvas Zoom floating controls -->
+          <div class="canvas-zoom-controls">
+            <button class="zoom-btn canvas-preview-btn" id="editor-3d-preview-btn" title="Open the folded card preview">Open Card</button>
+            <button class="zoom-btn" id="zoom-out-btn" title="Zoom Out">-</button>
+            <span class="zoom-level" id="zoom-percent-text">100%</span>
+            <button class="zoom-btn" id="zoom-in-btn" title="Zoom In">+</button>
+            <button class="zoom-btn" id="zoom-reset-btn" title="Reset Zoom">Fit</button>
+          </div>
+
+          <!-- Printable Canvas Surface -->
+          <div class="canvas-viewport" id="canvas-viewport">
+            <div class="design-canvas-wrapper" id="design-canvas-wrapper">
+              <div class="design-canvas" id="design-canvas">
+                <!-- Editable Layers rendered here by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Property Customizer Sidebar -->
+        <div class="editor-right-props" id="editor-right-props">
+          <div class="props-header">
+            <h3>Properties</h3>
+          </div>
+          <div class="props-content" id="props-content">
+            <div class="no-selection-msg">Select any element on the canvas to customize its typography, colors, size, or layer order.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 1: TEMPLATE PREVIEW QUICK-VIEW MODAL -->
+    <div class="modal-overlay hidden" id="template-modal-overlay">
+      <div class="modal-card template-preview-modal">
+        <button class="modal-close-btn" id="template-modal-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="modal-grid">
+          <div class="modal-left-preview">
+            <div class="modal-canvas-render" id="modal-canvas-render"></div>
+          </div>
+          <div class="modal-right-info">
+            <span class="modal-category-tag" id="modal-category">Birthday</span>
+            <h2 class="modal-title" id="modal-title">Minimal Birthday Invitation</h2>
+            <div class="modal-meta-tags" id="modal-tags">
+              <span class="meta-tag">Minimal</span>
+              <span class="meta-tag">Modern</span>
+            </div>
+
+            <p class="modal-description" id="modal-description">
+              A sleek editorial design featuring refined typography, delicate accents, and balanced whitespace. Fully customizable.
+            </p>
+
+            <div class="modal-actions">
+              <button class="btn-primary btn-large width-full" id="modal-use-btn">
+                <span>Use Template</span>
+              </button>
+              <button class="btn-outline btn-large width-full" id="modal-fav-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span id="modal-fav-text">Save to Favorites</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 2: NEW INVITATION CREATOR MODAL -->
+    <div class="modal-overlay hidden" id="invitation-modal-overlay">
+      <div class="modal-card invitation-form-modal">
+        <button class="modal-close-btn" id="invitation-modal-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <h2>Create Invitation & RSVP Event</h2>
+        <p class="modal-sub">Set event parameters to receive guest RSVPs</p>
+
+        <form id="invitation-create-form" class="form-grid">
+          <div class="form-group full-width">
+            <label for="inv-event-name">Event Name *</label>
+            <input type="text" id="inv-event-name" placeholder="e.g. Maya's 30th Birthday Gala" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inv-date">Event Date *</label>
+            <input type="date" id="inv-date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inv-time">Event Time *</label>
+            <input type="time" id="inv-time" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="inv-location">Venue / Location *</label>
+            <input type="text" id="inv-location" placeholder="e.g. The Botanical Gardens, 120 Park Ave" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inv-host">Host Name(s) *</label>
+            <input type="text" id="inv-host" placeholder="e.g. The Smith Family" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="inv-desc">Event Description & Notes</label>
+            <textarea id="inv-desc" rows="3" placeholder="Additional details, dress code, or registry notes..."></textarea>
+          </div>
+
+          <div class="form-actions full-width">
+            <button type="button" class="btn-secondary" id="inv-cancel-btn">Cancel</button>
+            <button type="submit" class="btn-primary">Create Invitation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL 3: MAGIC INVITE MODAL -->
+    <div class="modal-overlay hidden" id="ai-modal-overlay">
+      <div class="modal-card magic-invite-modal">
+        <button class="modal-close-btn" id="ai-modal-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="magic-modal-top-bar center">
+          <span class="magic-sub-header">Magic invite</span>
+        </div>
+
+        <div class="magic-modal-header center">
+          <h2 class="magic-title">Customize your <span class="magic-ai-gradient">AI</span> invite</h2>
+          <p class="magic-sub">Share your event details & visual preferences, and AI will craft the perfect design.</p>
+        </div>
+
+        <form id="ai-card-form" class="form-grid">
+          <div class="form-group full-width">
+            <label for="magic-event-details">Event details *</label>
+            <textarea id="magic-event-details" rows="3" placeholder="Share the event name, date, time, location, and any special details." required></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="magic-visuals-desc">Describe your visuals</label>
+            <textarea id="magic-visuals-desc" rows="3" placeholder="Describe the visuals you'd like on your invitation (e.g. botanical floral border, soft pastel pink, luxury gold accents)..."></textarea>
+          </div>
+
+          <div class="magic-selectors-row">
+            <div class="magic-select-chip-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" stroke-width="2">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              </svg>
+              <span>Style</span>
+              <select id="magic-style-select">
+                <option value="Best match">Best match</option>
+                <option value="Minimal">Minimalist</option>
+                <option value="Floral">Botanical Floral</option>
+                <option value="Modern">Modern & Bold</option>
+                <option value="Luxury">Luxury Gold</option>
+                <option value="Editorial">Editorial</option>
+              </select>
+            </div>
+
+            <div class="magic-select-chip-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8A9C1" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a10 10 0 0 0 0 20z"></path>
+              </svg>
+              <span>Colors</span>
+              <select id="magic-color-select">
+                <option value="Best match">Best match</option>
+                <option value="Pink">Soft Pastel Pink</option>
+                <option value="Purple">Royal Lavender Purple</option>
+                <option value="Black">Luxury Black & Gold</option>
+                <option value="Neutral">Neutral Linen</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions full-width margin-top-sm">
+            <button type="submit" class="btn-magic-gradient">
+              <span>Generate Invite</span>
+            </button>
+          </div>
+
+          <div class="magic-modal-footer center">
+            <span class="magic-free-badge">Unlimited Free Tries • Powered by PetalWish Magic AI</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL 4: LOG IN / SIGN UP MODAL -->
+    <div class="modal-overlay hidden" id="login-modal-overlay">
+      <div class="modal-card auth-modal-box auth-wrapper" id="auth-wrapper">
+        <!-- Close Button -->
+        <button class="modal-close-btn" id="login-modal-close" style="z-index: 150;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Floating shapes (always visible in background) -->
+        <div class="modal-petal petal-1"></div>
+        <div class="modal-petal petal-2"></div>
+        <div class="modal-petal petal-3"></div>
+
+        <!-- 1. SIGN IN FORM PANEL (Left by default) -->
+        <div class="auth-panel signin-panel">
+          <form id="signin-form" class="form-grid">
+            <div class="auth-header center slide-element">
+              <h2 class="auth-title">Welcome Back</h2>
+              <p class="auth-sub">Log in to your PetalWish account</p>
+            </div>
+            
+            <div class="form-group full-width slide-element">
+              <label for="signin-email">Email Address *</label>
+              <input type="email" id="signin-email" placeholder="name@example.com" required value="elena@example.com">
+            </div>
+
+            <div class="form-group full-width slide-element">
+              <label for="signin-password">Password *</label>
+              <input type="password" id="signin-password" placeholder="••••••••" required value="petalwish2026" autocomplete="current-password">
+            </div>
+
+            <p class="auth-error full-width" id="signin-error" role="alert" hidden></p>
+
+            <div class="form-actions full-width slide-element">
+              <button type="submit" class="btn-primary width-full btn-pulse-glow" id="signin-submit-btn">Log In</button>
+            </div>
+
+            <div class="demo-login-wrap full-width slide-element">
+              <span class="demo-divider-text">OR CONTINUE AS DEMO USER</span>
+              <div class="demo-user-btns">
+                <button type="button" class="demo-user-chip" data-name="Elena Rostova" data-email="elena@example.com">Elena Rostova</button>
+                <button type="button" class="demo-user-chip" data-name="Julian & Maya" data-email="julian@example.com">Julian & Maya</button>
+                <button type="button" class="demo-user-chip" data-name="Sarah Sterling" data-email="sarah@example.com">Sarah Sterling</button>
+              </div>
+            </div>
+            
+            <p class="mobile-switch-text slide-element">Don't have an account? <a href="#" class="register-trigger">Sign Up</a></p>
+          </form>
+        </div>
+
+        <!-- 2. SIGN UP FORM PANEL (Right by default, hidden until toggled) -->
+        <div class="auth-panel signup-panel">
+          <form id="signup-form" class="form-grid">
+            <div class="auth-header center slide-element">
+              <h2 class="auth-title">Create Account</h2>
+              <p class="auth-sub">Join PetalWish today</p>
+            </div>
+
+            <div class="form-group full-width slide-element">
+              <label for="signup-name">Full Name *</label>
+              <input type="text" id="signup-name" placeholder="e.g. Elena Rostova" required>
+            </div>
+
+            <div class="form-group full-width slide-element">
+              <label for="signup-email">Email Address *</label>
+              <input type="email" id="signup-email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group full-width slide-element">
+              <label for="signup-password">Password *</label>
+              <input type="password" id="signup-password" placeholder="At least 8 characters, with a number" required minlength="8" autocomplete="new-password">
+            </div>
+
+            <p class="auth-error full-width" id="signup-error" role="alert" hidden></p>
+
+            <div class="form-actions full-width slide-element">
+              <button type="submit" class="btn-primary width-full btn-pulse-glow" id="signup-submit-btn">Create Account</button>
+            </div>
+            
+            <p class="mobile-switch-text slide-element">Already have an account? <a href="#" class="login-trigger">Sign In</a></p>
+          </form>
+        </div>
+
+        <!-- 3. SLIDING OVERLAY CONTAINER (Right by default, slides left on toggle) -->
+        <div class="auth-overlay-container">
+          <div class="auth-overlay">
+            <!-- Sign In Overlay Panel (Shown when on Signup form) -->
+            <div class="overlay-panel overlay-left">
+              <div class="spinning-badge-wrap" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">
+                <svg class="spinning-badge" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="3.5" fill="#FFFFFF"/>
+                  <path d="M12 2 C9.5 2 8 4.5 8 7 C8 9.5 9.5 11 12 11 C14.5 11 16 9.5 16 7 C16 4.5 14.5 2 12 2 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M12 22 C14.5 22 16 19.5 16 17 C16 14.5 14.5 13 12 13 C9.5 13 8 14.5 8 17 C8 19.5 9.5 22 12 22 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M2 12 C2 14.5 4.5 16 7 16 C9.5 16 11 14.5 11 12 C11 9.5 9.5 8 7 8 C4.5 8 2 9.5 2 12 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M22 12 C22 9.5 19.5 8 17 8 C14.5 8 13 9.5 13 12 C13 14.5 14.5 16 17 16 C19.5 16 22 14.5 22 12 Z" fill="rgba(255,255,255,0.7)"/>
+                </svg>
+              </div>
+              <h2>Welcome Back!</h2>
+              <p>To keep connected with us please login with your personal info</p>
+              <button class="nav-btn-secondary login-trigger" id="overlay-signin-btn">Sign In</button>
+            </div>
+            
+            <!-- Sign Up Overlay Panel (Shown when on Login form) -->
+            <div class="overlay-panel overlay-right">
+              <div class="spinning-badge-wrap" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">
+                <svg class="spinning-badge" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="3.5" fill="#FFFFFF"/>
+                  <path d="M12 2 C9.5 2 8 4.5 8 7 C8 9.5 9.5 11 12 11 C14.5 11 16 9.5 16 7 C16 4.5 14.5 2 12 2 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M12 22 C14.5 22 16 19.5 16 17 C16 14.5 14.5 13 12 13 C9.5 13 8 14.5 8 17 C8 19.5 9.5 22 12 22 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M2 12 C2 14.5 4.5 16 7 16 C9.5 16 11 14.5 11 12 C11 9.5 9.5 8 7 8 C4.5 8 2 9.5 2 12 Z" fill="rgba(255,255,255,0.7)"/>
+                  <path d="M22 12 C22 9.5 19.5 8 17 8 C14.5 8 13 9.5 13 12 C13 14.5 14.5 16 17 16 C19.5 16 22 14.5 22 12 Z" fill="rgba(255,255,255,0.7)"/>
+                </svg>
+              </div>
+              <h2>Hello, Friend!</h2>
+              <p>Enter your details and start your creative journey with us</p>
+              <button class="nav-btn-secondary register-trigger" id="overlay-signup-btn">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+    <!-- MODAL 3: SHARE MODAL -->
+    <div class="modal-overlay hidden" id="share-modal-overlay">
+      <div class="modal-card share-modal-box">
+        <button class="modal-close-btn" id="share-modal-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3>Share Your Design</h3>
+        <p>Share a direct link to your customized creation with friends, family, or guests.</p>
+        <div class="share-input-box" style="margin-bottom: 24px;">
+          <input type="text" id="share-link-input" readonly value="https://petalwish.app/design/share-7x92k1a">
+          <button class="btn-primary" id="copy-share-btn">Copy Link</button>
+        </div>
+
+        <div class="email-card-section" style="border-top: 1px solid var(--border-color); padding-top: 20px; text-align: left;">
+          <h4 style="margin-bottom: 8px; font-family: var(--font-heading); color: var(--text-dark);">Email this Card</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 16px; color: var(--text-muted);">Send this card directly to someone's inbox.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="form-group">
+              <input type="text" id="email-recipient-name" placeholder="Recipient Name" />
+            </div>
+            <div class="form-group">
+              <input type="email" id="email-recipient-email" multiple placeholder="Recipient Email Addresses (comma-separated)" />
+            </div>
+            <div class="form-group">
+              <textarea id="email-custom-message" rows="5" placeholder="Write your message..."></textarea>
+            </div>
+            <button class="btn-secondary" id="send-email-btn" style="width: 100%; justify-content: center; margin-top: 4px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Send Email</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <img class="brand-flower-mark" src="assets/images/petalwish-flower-mark.png" alt="">
+              <span class="brand-name brand-name-gradient">PetalWish</span>
+            </div>
+            <p class="footer-tagline">Cards that connect.</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Create</h4>
+            <ul>
+              <li><a href="#" data-category="All">Templates</a></li>
+              <li><a href="#" data-category="Wedding">Wedding</a></li>
+              <li><a href="#" data-category="Birthday">Birthday</a></li>
+              <li><a href="#" data-category="Baby & Kids">Baby & Kids</a></li>
+              <li><a href="#" data-category="Party">Party</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Occasions</h4>
+            <ul>
+              <li><a href="#" data-category="Wedding">Wedding</a></li>
+              <li><a href="#" data-category="Birthday">Birthday</a></li>
+              <li><a href="#" data-category="Baby & Kids">Baby & Kids</a></li>
+              <li><a href="#" data-category="Party">Party</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#explore-section">Inspiration</a></li>
+              <li><a href="#explore-section">Popular Designs</a></li>
+              <li><a href="#explore-section">New Templates</a></li>
+              <li><a href="#faq-accordion">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 PetalWish. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATIONS CONTAINER -->
+    <div class="toast-container" id="toast-container"></div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <script src="api.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

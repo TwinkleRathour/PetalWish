@@ -1,0 +1,21 @@
+NODE_ENV=development
+PORT=5000
+
+# Paste your MongoDB Atlas connection string after the = sign (no quotes, no spaces).
+# Make sure "/petalwish" comes right before the "?", like this:
+# mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/petalwish?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://PetalWish:petalwish@cluster0.rmm63sh.mongodb.net/petalwish?retryWrites=true&w=majority&appName=Cluster0
+
+JWT_SECRET=88170c8856e759ccc814fc38177747e3bb352fb936f92e7ed3198f16b2f97d466687109e3680e7156154771237043404
+JWT_EXPIRES_IN=7d
+
+CLIENT_ORIGIN=http://localhost:5173,http://localhost:5000,http://localhost:8000
+BCRYPT_SALT_ROUNDS=12
+SERVE_FRONTEND=true
+AUTO_SEED_TEMPLATES=true
+SEED_DEMO_USERS=true
+
+# Optional admin account, created by: npm run seed
+ADMIN_NAME=PetalWish Admin
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
