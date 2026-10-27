@@ -134,6 +134,29 @@ Template shape: `{ id, slug, title, category, style, color, orientation, tags, b
 | GET | `/:id` | One payment, with item templates populated |
 | GET | `/admin/all` | Admin only. Query: `status`, `userId`, `from`, `to`. Includes totals |
 
+### File uploads with Multer
+
+Uploads use `multipart/form-data` with the file in the field **`image`**. Allowed types are PNG, JPEG, WEBP and GIF, up to `MAX_UPLOAD_MB` (default 5 MB). All upload routes need auth.
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| POST | `/api/uploads/images` | Image for a card in the editor. Returns `{ id, url, path, filename, size, ... }` |
+| GET | `/api/uploads` | The user's uploads. Query: `kind`, `page`, `limit` |
+| GET / DELETE | `/api/uploads/:id` | Own uploads only. DELETE also removes the file from disk |
+| PUT / DELETE | `/api/auth/me/avatar` | Profile picture. A new one replaces the old file |
+| PUT | `/api/designs/:id/thumbnail` | Design preview image (owner only). Deleted together with the design |
+| PUT | `/api/templates/:idOrSlug/thumbnail` | Template cover image (admin only) |
+
+How it works:
+- **Multer** (`src/middleware/upload.js`) saves files with `diskStorage` to `server/uploads/<kind>/` under a random file name. The user's original file name is never used on disk.
+- Each file is checked twice: `fileFilter` checks the MIME type, then the server reads the file's first bytes to confirm it really is that image format. A renamed `.html` or `.exe` file is rejected, and SVG is not accepted because it can contain scripts.
+- Every file gets a document in the **`uploads`** collection (`owner`, `kind`, `filename`, `originalName`, `mimetype`, `size`, `path`, `design`/`template`).
+- If a request fails after Multer saved the file (wrong owner, invalid image…), the error handler deletes the file.
+- Files are served at `/uploads/...`. `server/uploads/` is in `.gitignore`.
+- In the editor, a logged-in user's image is uploaded and the design stores only its URL. Guests, or a failed upload, fall back to embedding the image in the design as before.
+
+When deploying to a host with a temporary disk (e.g. Render's free tier), uploaded files are lost on redeploy unless a persistent disk is attached. Set `PUBLIC_URL` so image links use the public address.
+
 ## Payment database (for the Razorpay module)
 
 The `payments` collection stores these fields:

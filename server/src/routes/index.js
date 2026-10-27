@@ -5,6 +5,7 @@ import templateRoutes from './template.routes.js';
 import designRoutes from './design.routes.js';
 import favoriteRoutes from './favorite.routes.js';
 import paymentRoutes from './payment.routes.js';
+import uploadRoutes from './upload.routes.js';
 
 const router = Router();
 
@@ -22,5 +23,6 @@ router.use('/templates', templateRoutes);
 router.use('/designs', designRoutes);
 router.use('/favorites', favoriteRoutes);
 router.use('/payments', paymentRoutes);
+router.use('/uploads', uploadRoutes);
 
 export default router;

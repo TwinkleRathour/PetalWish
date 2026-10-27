@@ -2,6 +2,7 @@ import { Design, Template } from '../models/index.js';
 import { ApiError } from '../utils/ApiError.js';
 import { sendSuccess, paginate, paginationMeta, escapeRegex } from '../utils/response.js';
 import { findTemplateOr404 } from '../services/template.service.js';
+import { recordUpload, uploadUrl, deleteUploadsWhere } from '../services/upload.service.js';
 
 const SORTS = {
   updated: { updatedAt: -1, _id: 1 },
@@ -69,7 +70,18 @@ export async function updateDesign(req, res) {
 export async function deleteDesign(req, res) {
   const design = await findOwnDesign(req);
   await design.deleteOne();
+  await deleteUploadsWhere({ design: design._id, kind: 'design-thumbnail' });
   sendSuccess(res, { id: design.id, deleted: true });
+}
+
+/** PUT /api/designs/:id/thumbnail — preview image uploaded with multer (field "image"). */
+export async function uploadThumbnail(req, res) {
+  const design = await findOwnDesign(req); // on 404 the error handler deletes the uploaded file
+  const upload = await recordUpload(req, { design: design._id });
+  await deleteUploadsWhere({ design: design._id, kind: 'design-thumbnail', _id: { $ne: upload._id } });
+  design.thumbnail = uploadUrl(req, upload);
+  await design.save();
+  sendSuccess(res, design);
 }
 
 export async function duplicateDesign(req, res) {
@@ -78,6 +90,8 @@ export async function duplicateDesign(req, res) {
   delete copy._id;
   delete copy.createdAt;
   delete copy.updatedAt;
+  // An uploaded thumbnail file belongs to the original and is deleted with it
+  if (copy.thumbnail?.includes('/uploads/design-thumbnails/')) delete copy.thumbnail;
 
   const design = await Design.create({
     ...copy,

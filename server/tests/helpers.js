@@ -3,8 +3,17 @@ process.env.NODE_ENV = 'test';
 process.env.BCRYPT_SALT_ROUNDS = '4';
 process.env.JWT_SECRET = 'test-secret';
 process.env.AUTO_SEED_TEMPLATES = 'false';
+process.env.SEED_DEMO_USERS = 'false';
+process.env.MAX_UPLOAD_MB = '1';
 
+import os from 'node:os';
+import path from 'node:path';
+import fs from 'node:fs';
 import { MongoMemoryReplSet } from 'mongodb-memory-server';
+
+// Each test file gets its own throw-away upload folder
+export const TEST_UPLOAD_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'petalwish-uploads-'));
+process.env.UPLOAD_DIR = TEST_UPLOAD_DIR;
 import supertest from 'supertest';
 
 let replSet;
@@ -27,6 +36,7 @@ export async function teardown() {
   const { disconnectDB } = await import('../src/config/db.js');
   await disconnectDB();
   await replSet?.stop();
+  fs.rmSync(TEST_UPLOAD_DIR, { recursive: true, force: true });
 }
 
 let counter = 0;

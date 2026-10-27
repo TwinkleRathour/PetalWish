@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
+import multer from 'multer';
 import { ApiError } from '../utils/ApiError.js';
 import { env } from '../config/env.js';
+import { removeFileQuietly } from './upload.js';
+
+const MULTER_MESSAGES = {
+  LIMIT_FILE_SIZE: () => [413, `Image is too large. The maximum size is ${env.MAX_UPLOAD_MB} MB`],
+  LIMIT_FILE_COUNT: () => [400, 'Upload one image at a time'],
+  LIMIT_UNEXPECTED_FILE: (err) => [400, `Unexpected file field "${err.field}". Send the image in the field "image"`],
+  LIMIT_FIELD_COUNT: () => [400, 'Too many form fields'],
+  LIMIT_PART_COUNT: () => [400, 'Too many form parts']
+};
 
 export function notFound(req, _res, next) {
   next(ApiError.notFound(`Route not found: ${req.method} ${req.originalUrl}`, { code: 'ROUTE_NOT_FOUND' }));
@@ -16,6 +26,11 @@ function normalize(err) {
   }
   if (err.type === 'entity.too.large') {
     return new ApiError(413, 'Request body is too large');
+  }
+
+  if (err instanceof multer.MulterError) {
+    const [status, message] = (MULTER_MESSAGES[err.code] || (() => [400, err.message]))(err);
+    return new ApiError(status, message, { code: err.code });
   }
 
   if (err instanceof mongoose.Error.ValidationError) {
@@ -40,8 +55,11 @@ function normalize(err) {
 }
 
 // eslint-disable-next-line no-unused-vars
-export function errorHandler(err, req, res, _next) {
+export async function errorHandler(err, req, res, _next) {
   const apiError = normalize(err);
+
+  // A file saved by multer is useless if the request failed: remove it from disk
+  if (req.file?.path) await removeFileQuietly(req.file.path);
 
   if (apiError.statusCode >= 500 && !env.isTest) {
     console.error(`[error] ${req.method} ${req.originalUrl}`, apiError.cause || err);

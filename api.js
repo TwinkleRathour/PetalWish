@@ -73,10 +73,11 @@
     return qs ? `?${qs}` : '';
   }
 
-  async function request(method, path, { body, query } = {}) {
+  async function request(method, path, { body, query, formData } = {}) {
     const headers = { Accept: 'application/json' };
     const token = getToken();
     if (token) headers.Authorization = `Bearer ${token}`;
+    // FormData (file uploads for multer): the browser sets the multipart Content-Type itself
     if (body !== undefined) headers['Content-Type'] = 'application/json';
 
     let response;
@@ -84,7 +85,7 @@
       response = await fetch(`${BASE_URL}${path}${toQueryString(query)}`, {
         method,
         headers,
-        body: body !== undefined ? JSON.stringify(body) : undefined,
+        body: formData || (body !== undefined ? JSON.stringify(body) : undefined),
         signal: AbortSignal.timeout ? AbortSignal.timeout(REQUEST_TIMEOUT_MS) : undefined
       });
     } catch (err) {
@@ -136,6 +137,13 @@
 
   const enc = encodeURIComponent;
 
+  /** Sends one image file in the multipart field "image" (what the server's multer expects). */
+  function uploadFile(method, path, file) {
+    const formData = new FormData();
+    formData.append('image', file, file.name || 'image');
+    return request(method, path, { formData });
+  }
+
   window.PetalWishAPI = {
     baseUrl: BASE_URL,
     ApiError,
@@ -150,6 +158,8 @@
       me: () => request('GET', '/auth/me'),
       updateProfile: (body) => request('PATCH', '/auth/me', { body }),
       changePassword: (body) => request('PATCH', '/auth/me/password', { body }),
+      uploadAvatar: (file) => uploadFile('PUT', '/auth/me/avatar', file),
+      removeAvatar: () => request('DELETE', '/auth/me/avatar'),
       logoutAll: () => request('POST', '/auth/logout-all')
     },
 
@@ -166,7 +176,14 @@
       create: (body) => request('POST', '/designs', { body }),
       update: (id, body) => request('PATCH', `/designs/${enc(id)}`, { body }),
       remove: (id) => request('DELETE', `/designs/${enc(id)}`),
-      duplicate: (id, body = {}) => request('POST', `/designs/${enc(id)}/duplicate`, { body })
+      duplicate: (id, body = {}) => request('POST', `/designs/${enc(id)}/duplicate`, { body }),
+      uploadThumbnail: (id, file) => uploadFile('PUT', `/designs/${enc(id)}/thumbnail`, file)
+    },
+
+    uploads: {
+      image: (file) => uploadFile('POST', '/uploads/images', file),
+      list: (query) => request('GET', '/uploads', { query }),
+      remove: (id) => request('DELETE', `/uploads/${enc(id)}`)
     },
 
     favorites: {

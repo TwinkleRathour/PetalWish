@@ -7,7 +7,7 @@ import { env } from '../src/config/env.js';
 import { connectDB, disconnectDB } from '../src/config/db.js';
 import { seedTemplates } from '../src/services/template.service.js';
 import { seedDemoUsers, DEMO_PASSWORD } from '../src/services/demo.service.js';
-import { User, Template, Design, Favorite, Payment } from '../src/models/index.js';
+import { User, Template, Design, Favorite, Payment, Upload } from '../src/models/index.js';
 
 async function seedAdmin() {
   const { ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_NAME } = env;
@@ -31,7 +31,7 @@ async function seedAdmin() {
 try {
   await connectDB(env.MONGODB_URI);
   // Build indexes up front so unique constraints exist before the app takes traffic
-  await Promise.all([User, Template, Design, Favorite, Payment].map((m) => m.syncIndexes()));
+  await Promise.all([User, Template, Design, Favorite, Payment, Upload].map((m) => m.syncIndexes()));
   const result = await seedTemplates();
   console.log(`[seed] Templates: ${result.total} in seed file, ${result.upserted} inserted, ${result.modified} updated`);
   await seedAdmin();

@@ -2,6 +2,7 @@ import { Router } from 'express';
 import * as templates from '../controllers/template.controller.js';
 import { optionalAuth, requireAuth, requireRole } from '../middleware/auth.js';
 import { validate } from '../middleware/validate.js';
+import { uploadImage } from '../middleware/upload.js';
 import {
   listTemplatesQuery,
   templateParams,
@@ -26,5 +27,12 @@ router.patch(
   templates.updateTemplate
 );
 router.delete('/:id', ...adminOnly, validate({ params: templateParams }), templates.deleteTemplate);
+router.put(
+  '/:id/thumbnail',
+  ...adminOnly,
+  validate({ params: templateParams }),
+  uploadImage('template-thumbnail'),
+  templates.uploadThumbnail
+);
 
 export default router;

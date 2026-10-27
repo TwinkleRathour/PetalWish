@@ -2,6 +2,7 @@ import { Template, Favorite } from '../models/index.js';
 import { sendSuccess, paginate, paginationMeta, escapeRegex } from '../utils/response.js';
 import { findTemplateOr404 } from '../services/template.service.js';
 import { ApiError } from '../utils/ApiError.js';
+import { recordUpload, uploadUrl, deleteUploadsWhere } from '../services/upload.service.js';
 
 const SORTS = {
   featured: { sortOrder: 1, createdAt: -1, _id: 1 },
@@ -114,6 +115,20 @@ export async function updateTemplate(req, res) {
 
 export async function deleteTemplate(req, res) {
   const template = await findTemplateOr404(req.valid.params.id, { includeUnpublished: true });
-  await Promise.all([template.deleteOne(), Favorite.deleteMany({ template: template._id })]);
+  await Promise.all([
+    template.deleteOne(),
+    Favorite.deleteMany({ template: template._id }),
+    deleteUploadsWhere({ template: template._id, kind: 'template-thumbnail' })
+  ]);
   sendSuccess(res, { id: template.id, deleted: true });
+}
+
+/** PUT /api/templates/:id/thumbnail (admin) — cover image uploaded with multer (field "image"). */
+export async function uploadThumbnail(req, res) {
+  const template = await findTemplateOr404(req.valid.params.id, { includeUnpublished: true });
+  const upload = await recordUpload(req, { template: template._id });
+  await deleteUploadsWhere({ template: template._id, kind: 'template-thumbnail', _id: { $ne: upload._id } });
+  template.thumbnailUrl = uploadUrl(req, upload);
+  await template.save();
+  sendSuccess(res, template);
 }

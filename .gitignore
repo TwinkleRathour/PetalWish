@@ -10,3 +10,6 @@ Thumbs.db
 
 # Local Claude Code / editor settings
 .claude/
+
+# Files uploaded through the app (multer)
+server/uploads/

@@ -9,6 +9,7 @@ import apiRoutes from './routes/index.js';
 import { apiLimiter } from './middleware/rateLimiters.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import { ApiError } from './utils/ApiError.js';
+import { UPLOAD_ROOT, ensureUploadDirs } from './middleware/upload.js';
 
 // Repository root: holds index.html, style.css, script.js and assets/
 const FRONTEND_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -41,6 +42,18 @@ export function createApp() {
 
   app.use('/api', apiLimiter, apiRoutes);
   app.use('/api', notFound);
+
+  // Images uploaded through multer. Names are random, so they can be cached for a long time.
+  // Cross-Origin-Resource-Policy lets pages on other origins (e.g. the Vite dev server) show them.
+  ensureUploadDirs();
+  app.use(
+    '/uploads',
+    (_req, res, next) => {
+      res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+      next();
+    },
+    express.static(UPLOAD_ROOT, { index: false, dotfiles: 'deny', maxAge: '30d', immutable: true })
+  );
 
   if (env.SERVE_FRONTEND) {
     // Serve only the public frontend files — never the server/ folder or .env

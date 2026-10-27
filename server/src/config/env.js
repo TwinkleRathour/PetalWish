@@ -39,6 +39,13 @@ const envSchema = z.object({
     .default('true')
     .transform((v) => v === 'true'),
 
+  // File uploads (multer): folder for uploaded images, max size per image in MB
+  UPLOAD_DIR: z.string().default(path.join(serverRoot, 'uploads')),
+  MAX_UPLOAD_MB: z.coerce.number().positive().max(50).default(5),
+  // Public base URL of this server, used to build links to uploaded files
+  // (e.g. https://petalwish-api.onrender.com). Defaults to the host of each request.
+  PUBLIC_URL: z.url().optional(),
+
   // Create the demo accounts used by the login modal's demo buttons (default: on, except in production)
   SEED_DEMO_USERS: z
     .enum(['true', 'false'])

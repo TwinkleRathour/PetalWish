@@ -2,6 +2,7 @@ import { User } from '../models/index.js';
 import { ApiError } from '../utils/ApiError.js';
 import { sendSuccess } from '../utils/response.js';
 import { buildAuthPayload } from '../services/token.service.js';
+import { recordUpload, uploadUrl, deleteUploadsWhere } from '../services/upload.service.js';
 
 export async function register(req, res) {
   const { name, email, password } = req.body;
@@ -55,6 +56,23 @@ export async function changePassword(req, res) {
   user.tokenVersion += 1; // signs out every other session
   await user.save();
   sendSuccess(res, buildAuthPayload(user));
+}
+
+/** PUT /api/auth/me/avatar — profile picture uploaded with multer (field "image"). */
+export async function uploadAvatar(req, res) {
+  const upload = await recordUpload(req);
+  // Only one avatar per user: remove the previous file(s)
+  await deleteUploadsWhere({ owner: req.user._id, kind: 'avatar', _id: { $ne: upload._id } });
+  req.user.avatarUrl = uploadUrl(req, upload);
+  await req.user.save();
+  sendSuccess(res, req.user);
+}
+
+export async function removeAvatar(req, res) {
+  await deleteUploadsWhere({ owner: req.user._id, kind: 'avatar' });
+  req.user.avatarUrl = undefined;
+  await req.user.save();
+  sendSuccess(res, req.user);
 }
 
 /** Revokes every token issued to this user (all devices). */

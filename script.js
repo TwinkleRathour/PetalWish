@@ -1990,30 +1990,48 @@
     const uploadInput = DOM.editorSubpanel.querySelector('#image-upload-input');
     if (uploadTrigger && uploadInput) {
       uploadTrigger.addEventListener('click', () => uploadInput.click());
-      uploadInput.addEventListener('change', (e) => {
+      uploadInput.addEventListener('change', async (e) => {
         const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function (evt) {
-            const newEl = {
-              id: 'el-' + Date.now(),
-              type: 'image',
-              url: evt.target.result,
-              x: 100,
-              y: 200,
-              width: 300,
-              height: 250,
-              rotation: 0
-            };
-            state.editorElements.push(newEl);
-            state.selectedElementId = newEl.id;
-            renderEditorCanvas();
-            renderPropertiesPanel();
-            pushHistoryState();
-            showToast('Image uploaded successfully');
+        if (!file) return;
+
+        const addImageElement = (url, extra = {}) => {
+          const newEl = {
+            id: 'el-' + Date.now(),
+            type: 'image',
+            url,
+            ...extra,
+            x: 100,
+            y: 200,
+            width: 300,
+            height: 250,
+            rotation: 0
           };
-          reader.readAsDataURL(file);
+          state.editorElements.push(newEl);
+          state.selectedElementId = newEl.id;
+          renderEditorCanvas();
+          renderPropertiesPanel();
+          pushHistoryState();
+          showToast('Image uploaded successfully');
+        };
+
+        // Signed in: upload the file to the server (multer) and keep only its URL in the design
+        if (isSignedIn()) {
+          uploadTrigger.classList.add('is-busy');
+          try {
+            const response = await API.uploads.image(file);
+            addImageElement(response.data.url, { uploadId: response.data.id });
+            return;
+          } catch (err) {
+            console.info('[PetalWish] Image upload failed, embedding it in the design instead:', err.message);
+          } finally {
+            uploadTrigger.classList.remove('is-busy');
+          }
         }
+
+        // Guests, or the upload failed: embed the image in the design as a data URL (as before)
+        const reader = new FileReader();
+        reader.onload = (evt) => addImageElement(evt.target.result);
+        reader.readAsDataURL(file);
       });
     }
 
